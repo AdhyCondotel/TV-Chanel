@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.ammase.androidtvonline"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "BASE_URL", "\"http://android.karebosimobileapp.com\"")
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    defaultConfig {
+        vectorDrawables.useSupportLibrary = true
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+ext {
+    supportLibraryVersion = '26.1.0'
+    supportLibraryGoogleService = '11.6.2'
+    supportLibraryGooglePanorama = '1.10.0'
+    supportLibraryVersionRetrofit = '2.2.0'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
+
+    compile "com.squareup.retrofit2:retrofit:$supportLibraryVersionRetrofit"
+    compile "com.squareup.retrofit2:converter-gson:$supportLibraryVersionRetrofit"
+    compile "com.squareup.retrofit2:adapter-rxjava2:$supportLibraryVersionRetrofit"
+    compile 'io.reactivex.rxjava2:rxjava:2.0.1'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+
+    implementation 'com.android.support:cardview-v7:26.1.0'
+}
