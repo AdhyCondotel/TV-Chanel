@@ -49,9 +49,7 @@ public class VideoPlayActivity extends AppCompatActivity {
         Intent intent = new Intent(act, VideoPlayActivity.class);
         act.startActivity(intent);
     }
-   // private String path = "http://117.144.248.49/HDhnws.m3u8?authCode=07110409322147352675&amp;stbId=006001FF0018120000060019F0D496A1&amp;Contentid=6837496099179515295&amp;mos=jbjhhzstsl&amp;livemode=1&amp;channel-id=wasusyt";
-
-    private VideoView mVideoView;
+     private VideoView mVideoView;
     private MediaPlayer mMediaPlayer;
 
     public static final String TAG = "SJZ";
@@ -162,8 +160,8 @@ public class VideoPlayActivity extends AppCompatActivity {
         initMediaController();
         initBottomLayout();
         resetProgressAndTimer();
+        startVideo("http://android.karebosimobileapp.com/adminkc/video/"+mVideo);
         //startVideo("http://android.karebosimobileapp.com/adminkc/video/"+mVideo);
-        startVideo("http://adi:qwerty123@103.53.184.165:9981/stream/channel/79daf06e741ea00008cdd8f37ac6eab3?ticket=656284E0B89AE727EE28FA8C59FA19DEDFAB5B3E");
     }
 
     private void startVideo(String s) {
@@ -274,7 +272,7 @@ public class VideoPlayActivity extends AppCompatActivity {
                 cancleControllerTimer();
                 mImage_PlayOrPause.setImageResource(R.drawable.jc_click_play_selector);
                 mediaControllerShow();
-                Toast.makeText(VideoPlayActivity.this, "播放完成", Toast.LENGTH_LONG).show();
+                Toast.makeText(VideoPlayActivity.this, "jaringan lemah", Toast.LENGTH_LONG).show();
             }
 
         }
